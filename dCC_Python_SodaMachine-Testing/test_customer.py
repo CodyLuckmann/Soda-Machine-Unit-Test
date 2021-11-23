@@ -1,5 +1,6 @@
 import unittest
 from customer import Customer
+import cans
 import coins
 
 
@@ -33,8 +34,6 @@ class TestAddCoinsToWallet(unittest.TestCase):
         self.customer = Customer()
         
     def test_add_coins(self):
-        # coin_list = len(self.customer.wallet.money)
-        # self.customer.add_coins_to_wallet(Nickel(), Dime(), Quarter())
         coin_list = [coins.Quarter, coins.Penny, coins.Dime]
         coin = self.customer.add_coins_to_wallet(coin_list)
         self.assertEqual(len(self.customer.wallet.money), 91)
@@ -44,9 +43,22 @@ class TestAddCoinsToWallet(unittest.TestCase):
         coin = self.customer.add_coins_to_wallet(coin_list)
         self.assertEqual(len(self.customer.wallet.money), 88)
         
+class TestAddCanToBackpack(unittest.TestCase):
+    def setUp(self):
+        self.customer = Customer()
         
-
-
+    def test_add_can(self):
+        can = self.customer.add_can_to_backpack(cans.Cola)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
+        
+    def test_add_another_can(self):
+        can = self.customer.add_can_to_backpack(cans.OrangeSoda)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
+        
+    def test_third_can(self):
+        can = self.customer.add_can_to_backpack(cans.RootBeer)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
+                
         
 if __name__ == '__main__':
     unittest.main()
