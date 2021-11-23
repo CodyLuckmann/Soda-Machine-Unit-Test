@@ -1,7 +1,7 @@
 import unittest
 from customer import Customer
 import coins
-
+from coins import Nickel, Dime, Quarter
 
 class TestGetWalletCoin(unittest.TestCase):
     
@@ -33,14 +33,15 @@ class TestAddCoinsToWallet(unittest.TestCase):
         self.customer = Customer()
         
     def test_add_coins(self):
-        # coin_list = len(self.customer.wallet.money)
-        # self.customer.add_coins_to_wallet(Nickel(), Dime(), Quarter())
-        coin_1 = 'Quarter'
-        coin_2 = 'Dime'
-        coin_3 = 'Nickel'
-        coin_list = [coin_1, coin_2, coin_3]
-        result =self.customer.wallet.money(coin_list)
-        # self.assertEqual(result, len(self
+        coin_list = len(self.customer.wallet.money)
+        self.customer.add_coins_to_wallet([Nickel(), Dime(), Quarter()])
+        self.assertEqual(len(self.customer.wallet.money), coin_list + 3)
+        # coin_1 = 'Quarter'
+        # coin_2 = 'Dime'
+        # coin_3 = 'Nickel'
+        # coin_list = [coin_1, coin_2, coin_3]
+        # result =self.customer.wallet.money(coin_list)
+        # # self.assertEqual(result, len(self
 
 
         
