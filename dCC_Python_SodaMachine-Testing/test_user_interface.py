@@ -94,18 +94,22 @@ class TestValidateCoinSelection(unittest.TestCase):
         self.user_interface = user_interface
         coin = self.user_interface.validate_coin_selection(2)
         self.assertEqual(coin, coin)
+    
     def test_validate_coin_3(self):
         self.user_interface = user_interface
         coin = self.user_interface.validate_coin_selection(3)
         self.assertEqual(coin, coin)
+    
     def test_validate_coin_4(self):
         self.user_interface = user_interface
         coin = self.user_interface.validate_coin_selection(4)
         self.assertEqual(coin, coin)
+    
     def test_validate_coin_5(self):
         self.user_interface = user_interface
         coin = self.user_interface.validate_coin_selection(5)
         self.assertEqual(coin, coin)
+    
     def test_not_valid_coin(self):
         self.user_interface = user_interface
         coin = self.user_interface.validate_coin_selection(6)
