@@ -35,12 +35,16 @@ class TestAddCoinsToWallet(unittest.TestCase):
     def test_add_coins(self):
         # coin_list = len(self.customer.wallet.money)
         # self.customer.add_coins_to_wallet(Nickel(), Dime(), Quarter())
-        coin_1 = 'Quarter'
-        coin_2 = 'Dime'
-        coin_3 = 'Nickel'
-        coin_list = [coin_1, coin_2, coin_3]
-        result =self.customer.wallet.money(coin_list)
-        # self.assertEqual(result, len(self
+        coin_list = [coins.Quarter, coins.Penny, coins.Dime]
+        coin = self.customer.add_coins_to_wallet(coin_list)
+        self.assertEqual(len(self.customer.wallet.money), 91)
+        
+    def test_empty_list(self):
+        coin_list = []
+        coin = self.customer.add_coins_to_wallet(coin_list)
+        self.assertEqual(len(self.customer.wallet.money), 88)
+        
+        
 
 
         
