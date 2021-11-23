@@ -139,11 +139,6 @@ class TestDepositCoinsIntoRegister(unittest.TestCase):
         self.soda_machine.deposit_coins_into_register(coin_list)
         self.assertEqual(len(self.soda_machine.register), 92)
         
-
-    
-    
-    
-    
 if __name__ == '__main__':
     unittest.main()
         
