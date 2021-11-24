@@ -6,6 +6,7 @@ class TestFillWallet(unittest.TestCase):
         self.wallet = Wallet()
         
     def test_fill_wallet(self):
+        """Runs test to check the wallet is being filled with coins """
         wallet = self.wallet.money
         self.assertEqual(len(wallet), 88)
         
