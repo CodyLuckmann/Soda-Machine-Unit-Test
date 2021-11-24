@@ -42,7 +42,7 @@ class TestGetCoin(unittest.TestCase):
         
     def test_not_valid_coin(self):
         returned_coin = self.soda_machine.get_coin_from_register('Half Dollar')
-        self.assertNotIsInstance(returned_coin, coins.Coin)
+        self.assertIsNone(returned_coin)
         
 class TestRegisterHasCoin(unittest.TestCase):
     def setUp(self):
