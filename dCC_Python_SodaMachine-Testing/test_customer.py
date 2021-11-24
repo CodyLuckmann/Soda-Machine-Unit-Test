@@ -27,14 +27,14 @@ class TestGetWalletCoin(unittest.TestCase):
         
     def test_not_valid_coin(self):
         returned_coin = self.customer.get_wallet_coin('Half Dollar')
-        self.assertNotIsInstance(returned_coin, coins.Coin)
+        self.assertIsNone(returned_coin)
         
 class TestAddCoinsToWallet(unittest.TestCase):
     def setUp(self):
         self.customer = Customer()
         
     def test_add_coins(self):
-        coin_list = [coins.Quarter, coins.Penny, coins.Dime]
+        coin_list = [coins.Quarter(), coins.Penny(), coins.Dime()]
         coin = self.customer.add_coins_to_wallet(coin_list)
         self.assertEqual(len(self.customer.wallet.money), 91)
         
@@ -48,15 +48,15 @@ class TestAddCanToBackpack(unittest.TestCase):
         self.customer = Customer()
         
     def test_add_can(self):
-        can = self.customer.add_can_to_backpack(cans.Cola)
+        self.customer.add_can_to_backpack(cans.Cola())
         self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
         
     def test_add_another_can(self):
-        can = self.customer.add_can_to_backpack(cans.OrangeSoda)
+        self.customer.add_can_to_backpack(cans.OrangeSoda())
         self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
         
     def test_third_can(self):
-        can = self.customer.add_can_to_backpack(cans.RootBeer)
+        can = self.customer.add_can_to_backpack(cans.RootBeer())
         self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
                 
         
